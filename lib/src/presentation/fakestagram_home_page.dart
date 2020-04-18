@@ -21,7 +21,7 @@ class FakeHomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        // All Posts
+        // All Page contents
         children: <Widget>[
 
           // Stories
@@ -33,7 +33,37 @@ class FakeHomeBody extends StatelessWidget {
           // Post
           Container(
             color: Colors.white,
-            height: 100,
+            height: 200,
+            child: Column(
+              children: <Widget>[
+
+                // Header
+                Row(
+                  children: <Widget>[
+                    Image(),
+
+                    Column(
+                      children: <Widget>[
+                        Text('username'),
+                        Text('#, location, or sponcered'),
+                      ],
+                    ),
+
+                    Icon(Icons.more_horiz),
+                  ],
+                ),
+
+                // Image
+                Image(),
+
+                // Footer 1 (Like, Comment, Send, Save)
+                Row(),
+
+                // Footer 2 (Views)
+                Row(),
+
+              ],
+            ),
           ),
 
         ],
