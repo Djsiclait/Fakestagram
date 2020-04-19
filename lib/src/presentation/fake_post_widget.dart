@@ -1,16 +1,12 @@
+import 'package:app/src/entity/post.dart';
 import 'package:flutter/material.dart';
 
 
 class FakePost extends StatelessWidget {
   // fields
-  final String username;
-  final String location;
-  final String description;
-  final String hashtags;
-  final int views;
-  final int comments;
+  Post post;
 
-  FakePost({this.username, this.location = '', this.description= '', this.hashtags = '', this.views = 0, this.comments = 0});
+  FakePost(this.post);
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +36,8 @@ class FakePost extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(this.username, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
-                    Text(this.location, style: TextStyle(fontSize: 6.0), textAlign: TextAlign.left,),
+                    Text(this.post.username, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+                    Text(this.post.location, style: TextStyle(fontSize: 6.0), textAlign: TextAlign.left,),
                   ],
                 ),
               ),
@@ -91,7 +87,7 @@ class FakePost extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 5.0),
-                child: Text('${this.views}', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+                child: Text('${this.post.views}', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
               ),
 
               Padding(
@@ -106,17 +102,17 @@ class FakePost extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 5.0),
-                child: Text(this.username, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+                child: Text(this.post.username, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
               ),
 
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 5.0),
-                child: Text(this.description, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+                child: Text(this.post.description, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
               ),
 
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 2.0),
-                child: Text(this.hashtags, style: TextStyle(fontSize: 7.0, color: Colors.blue), textAlign: TextAlign.left,),
+                child: Text(this.post.hashtags, style: TextStyle(fontSize: 7.0, color: Colors.blue), textAlign: TextAlign.left,),
               ),
             ],
           ),
@@ -124,7 +120,7 @@ class FakePost extends StatelessWidget {
           // Footer 4 (view all comments option)
           Padding(
             padding: EdgeInsets.only(top: 5.0, left: 5.0),
-            child: Text('View all ${this.comments} comments', style: TextStyle(fontSize: 8.0, color: Colors.grey[400]), textAlign: TextAlign.left,),
+            child: Text('View all ${this.post.comments} comments', style: TextStyle(fontSize: 8.0, color: Colors.grey[400]), textAlign: TextAlign.left,),
           ),
 
         ],

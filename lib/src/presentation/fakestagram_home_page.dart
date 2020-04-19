@@ -1,3 +1,4 @@
+import 'package:app/src/entity/post.dart';
 import 'package:flutter/material.dart';
 import 'fake_home_appbar.dart';
 import 'fake_post_widget.dart';
@@ -32,9 +33,9 @@ class FakeHomeBody extends StatelessWidget {
           ),
 
           // Posts
-          FakePost(username: 'philippe', location: 'Santiago, RD',),
-          FakePost(username: 'bryan', location: 'Santiago, RD', description: 'mis vacaciones fueron super chulo!!!!', hashtags: '#monumental #chevere',),
-          FakePost(username: 'duran', location: 'Paris, Francia', views: 231, comments: 42,),
+          FakePost(Post('philippe', location: 'Santiago, RD',)),
+          FakePost(Post('bryan', location: 'Santiago, RD', description: 'mis vacaciones fueron super chulo!!!!', hashtags: '#monumental #chevere',)),
+          FakePost(Post('duran', location: 'Paris, Francia', views: 231, comments: 42,)),
 
           Padding(
             padding: EdgeInsets.all(5.0),
