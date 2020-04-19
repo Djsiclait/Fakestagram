@@ -43,14 +43,18 @@ class _FakePostState extends State<FakePost> {
           // Header
           Row(
             children: <Widget>[
+
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 5.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: Image(
-                    height: 30.0,
-                    width: 30.0,
-                    image: AssetImage('assets/profile.jpeg'),
+                child: Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/profile.jpeg'),
+                    ),
                   ),
                 ),
               ),

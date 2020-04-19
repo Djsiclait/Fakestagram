@@ -1,7 +1,8 @@
 import 'package:app/src/entity/post.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'fake_home_appbar.dart';
-import 'fake_post_widget.dart';
+import '../widgets/fake_post_widget.dart';
 
 class FakestagramHome extends StatelessWidget{
   @override
@@ -27,10 +28,7 @@ class FakeHomeBody extends StatelessWidget {
         children: <Widget>[
 
           // Stories
-          Container(
-            color: Colors.grey[200],
-            height: 30,
-          ),
+          FakeStories('philippe'),
 
           // Posts
           FakePost(Post('philippe', location: 'Santiago, RD',)),
@@ -47,5 +45,162 @@ class FakeHomeBody extends StatelessWidget {
     );
   }
 }
+
+class FakeStories extends StatelessWidget {
+
+  // fields
+  final String username;
+
+  FakeStories(this.username);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.grey[200],
+      height: 50,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: <Widget>[
+
+          // User's Story
+          Padding(
+            padding: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 5.0),
+            child: Column(
+              children: <Widget>[
+
+                Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage('assets/profile.jpeg'),
+                      ),
+                    ),
+                  ),
+                Center(child: Text(this.username, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.center,)),
+
+              ],
+            ),
+          ),
+
+          // Other users' stories
+          Padding(
+            padding: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 5.0),
+            child: Column(
+              children: <Widget>[
+
+                  Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage('assets/carol_baskins.jpeg'),
+                      ),
+                    ),
+                  ),
+                Center(child: Text('Carol F-ing Baskins', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.center,)),
+
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 5.0),
+            child: Column(
+              children: <Widget>[
+
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/carol_baskins.jpeg'),
+                    ),
+                  ),
+                ),
+                Center(child: Text('Carol F-ing Baskins', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.center,)),
+
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 5.0),
+            child: Column(
+              children: <Widget>[
+
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/carol_baskins.jpeg'),
+                    ),
+                  ),
+                ),
+                Center(child: Text('Carol F-ing Baskins', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.center,)),
+
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 5.0),
+            child: Column(
+              children: <Widget>[
+
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/carol_baskins.jpeg'),
+                    ),
+                  ),
+                ),
+                Center(child: Text('Carol F-ing Baskins', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.center,)),
+
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 5.0),
+            child: Column(
+              children: <Widget>[
+
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/carol_baskins.jpeg'),
+                    ),
+                  ),
+                ),
+                Center(child: Text('Carol F-ing Baskins', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.center,)),
+
+              ],
+            ),
+          ),
+
+        ],
+      ),
+    );
+  }
+}
+
 
 

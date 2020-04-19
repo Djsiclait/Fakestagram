@@ -42,6 +42,7 @@ flutter:
   assets:
     - assets/profile.jpeg
     - assets/post1.jpeg
+    - assets/carol_baskins.jpeg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
