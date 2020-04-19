@@ -1,18 +1,42 @@
 import 'package:app/src/entity/post.dart';
 import 'package:flutter/material.dart';
 
-
-class FakePost extends StatelessWidget {
+class FakePost extends StatefulWidget {
   // fields
   Post post;
 
   FakePost(this.post);
 
   @override
+  _FakePostState createState() => _FakePostState();
+}
+
+class _FakePostState extends State<FakePost> {
+  // Mutable elements
+  Color _favoriteColor = Colors.black;
+  IconData _favorite = Icons.favorite_border;
+
+  IconData _bookmark = Icons.bookmark_border;
+
+  // Change state functions
+  void Like_Unlike_Post(){
+    setState(() {
+      _favorite == Icons.favorite_border ? _favorite = Icons.favorite : _favorite = Icons.favorite_border;
+      _favoriteColor == Colors.black ? _favoriteColor = Colors.red : _favoriteColor = Colors.black;
+    });
+  }
+
+  void Bookmark_Post(){
+    setState(() {
+      _bookmark == Icons.bookmark_border ? _bookmark = Icons.bookmark: _bookmark = Icons.bookmark_border;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      height: 300,
+      height: 350,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -36,8 +60,8 @@ class FakePost extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(this.post.username, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
-                    Text(this.post.location, style: TextStyle(fontSize: 6.0), textAlign: TextAlign.left,),
+                    Text(widget.post.username, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+                    Text(widget.post.location, style: TextStyle(fontSize: 6.0), textAlign: TextAlign.left,),
                   ],
                 ),
               ),
@@ -60,13 +84,17 @@ class FakePost extends StatelessWidget {
           // Footer 1 (Like, Comment, Send, Save)
           Row(
             children: <Widget>[
-              Padding(
+              IconButton(
+                icon: Icon(_favorite),
+                color: _favoriteColor,
+                iconSize: 12.0,
                 padding: EdgeInsets.only(top: 5.0, left: 5.0),
-                child: Icon(Icons.favorite_border, size: 12.0, color: Colors.black,),
+
+                onPressed: Like_Unlike_Post,
               ),
 
               Padding(
-                padding: EdgeInsets.only(top: 5.0, left: 5.0),
+                padding: EdgeInsets.only(top: 5.0, left: 0.0),
                 child: Icon(Icons.chat_bubble_outline, size: 12.0, color: Colors.black,),
               ),
 
@@ -75,9 +103,13 @@ class FakePost extends StatelessWidget {
                 child: Icon(Icons.send, size: 12.0, color: Colors.black,),
               ),
 
-              Padding(
-                padding: EdgeInsets.only(top: 5.0, left: 180.0),
-                child: Icon(Icons.bookmark_border, size: 12.0, color: Colors.black,),
+              IconButton(
+                icon: Icon(_bookmark),
+                color: Colors.black,
+                padding: EdgeInsets.only(top: 5.0, left: 150.0),
+                iconSize: 12.0,
+
+                onPressed: Bookmark_Post,
               ),
             ],
           ),
@@ -87,12 +119,22 @@ class FakePost extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 5.0),
-                child: Text('${this.post.views}', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+                child: Text('${widget.post.views}', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
               ),
 
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 2.0),
-                child: Text('views', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+                child: Text('views • Liked by ', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+              ),
+
+              Padding(
+                padding: EdgeInsets.only(top: 5.0, left: 2.0),
+                child: Text('${widget.post.others}', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+              ),
+
+              Padding(
+              padding: EdgeInsets.only(top: 5.0, left: 2.0),
+              child: Text(' others', style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
               ),
             ],
           ),
@@ -102,17 +144,17 @@ class FakePost extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 5.0),
-                child: Text(this.post.username, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+                child: Text(widget.post.username, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
               ),
 
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 5.0),
-                child: Text(this.post.description, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
+                child: Text(widget.post.description, style: TextStyle(fontSize: 7.0), textAlign: TextAlign.left,),
               ),
 
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 2.0),
-                child: Text(this.post.hashtags, style: TextStyle(fontSize: 7.0, color: Colors.blue), textAlign: TextAlign.left,),
+                child: Text(widget.post.hashtags, style: TextStyle(fontSize: 7.0, color: Colors.blue), textAlign: TextAlign.left,),
               ),
             ],
           ),
@@ -120,7 +162,7 @@ class FakePost extends StatelessWidget {
           // Footer 4 (view all comments option)
           Padding(
             padding: EdgeInsets.only(top: 5.0, left: 5.0),
-            child: Text('View all ${this.post.comments} comments', style: TextStyle(fontSize: 8.0, color: Colors.grey[400]), textAlign: TextAlign.left,),
+            child: Text('View all ${widget.post.comments} comments', style: TextStyle(fontSize: 8.0, color: Colors.grey[400]), textAlign: TextAlign.left,),
           ),
 
         ],
