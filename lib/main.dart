@@ -1,4 +1,4 @@
-import 'package:app/src/presentation/fakestagram_home_page.dart';
+import 'package:app/src/routes/fakestagram_home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
