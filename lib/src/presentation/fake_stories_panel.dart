@@ -31,7 +31,7 @@ class FakeStoriesPanel extends StatelessWidget {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: AssetImage('assets/profile.jpeg'),
+                      image: AssetImage('assets/images/profile.jpeg'),
                     ),
                   ),
                 ),

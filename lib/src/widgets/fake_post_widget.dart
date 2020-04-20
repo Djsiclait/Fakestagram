@@ -54,7 +54,7 @@ class _FakePostState extends State<FakePost> {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: AssetImage('assets/profile.jpeg'),
+                      image: AssetImage('assets/images/profile.jpeg'),
                     ),
                   ),
                 ),
@@ -81,20 +81,19 @@ class _FakePostState extends State<FakePost> {
           // Image
           Container(
             height: 200,
+            // source: https://stackoverflow.com/questions/49838021/how-do-i-stack-widgets-overlapping-each-other-in-flutter
             child: Stack(
               children: <Widget>[
                 Center(
                   child: Image(
-                    //color: Colors.amber,
                     height: 200,
-                    //width: ,
-                    image: AssetImage('assets/post1.jpeg'),
+                    image: AssetImage('assets/images/tigerKing.jpg'),
                   ),
                 ),
 
                 Positioned(
-                  bottom: 5,
-                  left: 5,
+                  bottom: 10,
+                  left: 10,
                   child: FakeCustomFloatingButton(Colors.grey[850], Colors.grey),
                 ),
               ],

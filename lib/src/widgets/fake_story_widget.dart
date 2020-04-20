@@ -14,6 +14,7 @@ class FakeStory extends StatelessWidget {
       child: Column(
         children: <Widget>[
 
+          // Source: https://medium.com/@boldijar.paul/circle-image-view-in-flutter-965963c46cf5
           Container(
             width: 30,
             height: 30,
@@ -21,7 +22,7 @@ class FakeStory extends StatelessWidget {
               shape: BoxShape.circle,
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage('assets/carol_baskins.jpeg'),
+                image: AssetImage('assets/images/carol_baskins.jpeg'),
               ),
             ),
           ),
