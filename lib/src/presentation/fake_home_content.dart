@@ -1,7 +1,6 @@
 import 'package:app/src/entity/post.dart';
 import 'package:app/src/widgets/fake_post_widget.dart';
 import 'package:flutter/material.dart';
-
 import 'fake_stories_panel.dart';
 
 class FakeHomeContent extends StatelessWidget {
@@ -18,7 +17,7 @@ class FakeHomeContent extends StatelessWidget {
           // Posts
           FakePost(Post('philippe', location: 'Santiago, RD',)),
           FakePost(Post('bryan', location: 'Santiago, RD', description: 'mis vacaciones fueron super chulo!!!!', hashtags: '#monumental #chevere',)),
-          FakePost(Post('duran', location: 'Paris, Francia', views: 231, comments: 42,)),
+          FakePost(Post('duran', location: 'Paris, France', views: 231, comments: 42,)),
 
           Padding(
             padding: EdgeInsets.all(5.0),

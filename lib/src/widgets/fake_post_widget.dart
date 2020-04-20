@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class FakePost extends StatefulWidget {
   // fields
-  Post post;
+  final Post post;
 
   FakePost(this.post);
 
