@@ -22,10 +22,10 @@ class FakeHomeAppBar extends StatelessWidget implements PreferredSize{
           child: Text(
             'Fakestagram',
             style: TextStyle(
-              fontFamily: 'Lato',
+              fontFamily: 'Lobster',
               fontSize: 12.0,
               color: Colors.black,
-              //fontStyle: FontStyle.italic,
+              //fontWeight: FontWeight.bold,
             ),
           ),
         ),
