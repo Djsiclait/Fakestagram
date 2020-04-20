@@ -1,4 +1,5 @@
 import 'package:app/src/entity/post.dart';
+import 'package:app/src/widgets/fake_custom_floating_button.dart';
 import 'package:flutter/material.dart';
 
 class FakePost extends StatefulWidget {
@@ -78,11 +79,26 @@ class _FakePostState extends State<FakePost> {
           ),
 
           // Image
-          Image(
-            //color: Colors.amber,
+          Container(
             height: 200,
-            //width: ,
-            image: AssetImage('assets/post1.jpeg'),
+            child: Stack(
+              children: <Widget>[
+                Center(
+                  child: Image(
+                    //color: Colors.amber,
+                    height: 200,
+                    //width: ,
+                    image: AssetImage('assets/post1.jpeg'),
+                  ),
+                ),
+
+                Positioned(
+                  bottom: 5,
+                  left: 5,
+                  child: FakeCustomFloatingButton(Colors.grey[850], Colors.grey),
+                ),
+              ],
+            ),
           ),
 
           // Footer 1 (Like, Comment, Send, Save)
