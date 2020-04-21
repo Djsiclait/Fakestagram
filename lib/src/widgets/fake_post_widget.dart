@@ -1,5 +1,6 @@
 import 'package:app/src/entity/post.dart';
 import 'package:app/src/widgets/fake_custom_floating_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FakePost extends StatefulWidget {
@@ -86,7 +87,7 @@ class _FakePostState extends State<FakePost> {
               children: <Widget>[
                 Center(
                   child: Image(
-                    height: 200,
+                    //height: 200, // maybe optional
                     image: AssetImage('assets/images/tigerKing.jpg'),
                   ),
                 ),
@@ -103,14 +104,21 @@ class _FakePostState extends State<FakePost> {
           // Footer 1 (Like, Comment, Send, Save)
           Row(
             children: <Widget>[
-              IconButton(
-                icon: Icon(_favorite),
-                color: _favoriteColor,
-                iconSize: 12.0,
-                padding: EdgeInsets.only(top: 5.0, left: 5.0),
 
-                onPressed: Like_Unlike_Post,
+              Container(
+                width: 20,
+                child: IconButton(
+                  color: _favoriteColor,
+                  padding: EdgeInsets.only(top: 5.0, left: 5.0),
+
+                  icon: Icon(_favorite,),
+                  iconSize: 12.0,
+
+                  onPressed: Like_Unlike_Post,
+                ),
               ),
+
+
 
               Padding(
                 padding: EdgeInsets.only(top: 5.0, left: 0.0),
